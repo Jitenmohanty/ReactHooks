@@ -12,6 +12,7 @@ import Home from "./Components/Home/Home.jsx";
 import About from "./Components/About/About.jsx";
 import Contact from "./Components/Contact/Contact";
 import User from "./Components/Users/User";
+import Github, { githubInfo } from "./Components/Github/Github";
 
 // const router = createBrowserRouter([
 //   {
@@ -34,14 +35,17 @@ import User from "./Components/Users/User";
 //   },
 // ]);
 
+//Loader use to basic ui load faster it was handled by react router dom some type uses cache for memorizatin while mouse hover on it.
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Layout/>}>
-    <Route path="" element={<Home/>}/>
-    <Route path="about" element={<About/>}/>
-    <Route path="contact" element={<Contact/>}/>
-    <Route path="/user/:userid" element={<User/>}/>
-    {/* <Route path="/" element={<Home/>}/> */}
-  </Route>)
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route path="" element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="/user/:userid" element={<User />} />
+      <Route loader={githubInfo} path="github" element={<Github />} />
+    </Route>
+  )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
