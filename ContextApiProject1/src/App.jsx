@@ -17,6 +17,9 @@ function App() {
     document.querySelector("html").classList.add(themeMode);
   }, [themeMode]);
 
+  //if your context Api Function was not define you can also define here
+  
+
   return (
     <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
       <div className="flex flex-wrap min-h-screen items-center">
