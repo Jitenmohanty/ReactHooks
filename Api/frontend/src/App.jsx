@@ -24,16 +24,15 @@ function App() {
     })();
   }, []);
 
-  if (loading) {
-    return <h3>Loading ....</h3>;
-  }
+ 
   if (error) {
     return <h3>Something went Wrong.</h3>;
   }
 
   return (
     <>
-      <h3>Number of Products: {products.length}</h3>
+      
+      {loading ? <h3>Loading....</h3>:  <h3>Number of Products: {products.length}</h3>}
     </>
   );
 }

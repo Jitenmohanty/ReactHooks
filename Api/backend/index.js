@@ -37,6 +37,8 @@ app.get("/api/products", (req, res) => {
       image: "",
     },
   ];
+  // it was helping out the query params or you can say filter the search
+  
   if (req.query.search) {
     const filterProducts = products.filter((product) =>
       product.name.includes(req.query.search)
