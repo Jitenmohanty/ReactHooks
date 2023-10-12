@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { TodoProvider } from "./context/TodoContext";
 import TodoForm from "./components/TodoForm";
 import TodoItem from "./components/TodoItem";
+import ClearAll from "./components/ClearAll";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -21,14 +22,26 @@ function App() {
   };
 
   const toggleTodo = (id) => {
-    setTodos((prev) =>
-      prev.map((checkedTodo) =>
-        checkedTodo.id === id
-          ? { ...checkedTodo, completed: !checkedTodo.completed }
-          : checkedTodo
-      )
+  setTodos((prev) => {
+    const updatedTodos = prev.map((checkedTodo) =>
+      checkedTodo.id === id
+        ? { ...checkedTodo, completed: !checkedTodo.completed }
+        : checkedTodo
     );
-  };
+
+    // Separate completed and incomplete todos
+    const completedTodos = updatedTodos.filter((todo) => todo.completed);
+    const incompleteTodos = updatedTodos.filter((todo) => !todo.completed);
+
+    // Combine incomplete and completed todos with completed ones at the end
+    return [...incompleteTodos, ...completedTodos];
+  });
+};
+
+  const clearAllTodo = ()=>{
+    localStorage.clear();
+    setTodos([]); // Clear todos from state
+  }
 
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"));
@@ -42,11 +55,14 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+ 
+
   return (
     <TodoProvider
-      value={{ todos, addTodo, updateTodo, deleteTodo, toggleTodo }}
+      value={{ todos, addTodo, updateTodo, deleteTodo, toggleTodo,clearAllTodo }}
     >
       <div className="bg-[#172842] min-h-screen py-8">
+      <ClearAll clearAllTodo={clearAllTodo}/>
         <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
           <h1 className="text-2xl font-bold text-center mb-8 mt-2">
             Manage Your Todos
