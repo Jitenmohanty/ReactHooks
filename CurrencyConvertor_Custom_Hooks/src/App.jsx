@@ -13,14 +13,14 @@ function App() {
   const options = Object.keys(currencyInfo);
 
   const convert = () => {
-    setConvertedAmount((amount * currencyInfo[to]).toFixed(4));
+    setConvertedAmount((amount * currencyInfo[to]).toFixed(3));
   };
 
   const onSwap = () => {
     setFrom(to);
     setTo(from);
     setConvertedAmount(amount);
-    setAmount(amount);
+    setAmount(convertedAmount);
   };
 
   return (

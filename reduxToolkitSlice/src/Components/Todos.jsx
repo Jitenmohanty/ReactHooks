@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { editTodo, removeTodo } from "../redux/todoSlice";
+import { AllTodo, editTodo, removeTodo } from "../redux/todoSlice";
 
 function Todos() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector(AllTodo);
   const dispatch = useDispatch();
   return (
     <>
-      <div>Todos</div>
+      <div className="m-4 text-white text-lg font-extrabold">TODOS</div>
       <ul className="list-none">
         {todos.map((todo) => (
           <li

@@ -27,7 +27,7 @@ function App() {
 
   const copyClipBoard = ()=>{
     passwordRef.current.select();
-    //You also select with Your range.
+    // You also select with Your range.
     passwordRef.current.setSelectionRange(0,50);
     window.navigator.clipboard.writeText(password);
   }

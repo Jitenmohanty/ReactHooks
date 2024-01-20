@@ -5,7 +5,6 @@ import Todos from "./Components/Todos";
 function App() {
   return (
     <>
-      <h1>Todo Working</h1>
       <AddTodo />
       <Todos />
     </>
