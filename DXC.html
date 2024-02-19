@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            padding: 1vw;
+        }
+        .main{
+            background-color: greenyellow;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            border: 2px solid rgb(63, 57, 57);
+            border-radius: 5vw;
+            padding: 2vw;
+        }
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+        .bottom{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+        .top>div{
+            border: 2px solid black;
+            font-size: 2vw;
+            border-radius: 50%;
+            transform: rotate(-90deg); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height:3vw;
+            width:3vw;
+        }
+        
+        .bottom>div{
+            border: 2px solid black;
+            font-size: 2vw;
+            border-radius: 50%;
+            transform: rotate(-90deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height:3vw;
+            width:3vw;
+        }
+        .line{
+            background-color: brown;
+            height: inherit;
+            width:0.2vw;
+        }
+        .line::before{
+            content: "";
+            height: 10vw;
+            width: 10vw;
+            border-radius: 50%;
+            background-color: blue;
+            position: absolute;
+            top: 40%;
+            left: 45%;
+        }
+        .line::after{
+            content: "";
+            height: 1vw;
+            width: 1vw;
+            border-radius: 50%;
+            background-color: rgb(176, 176, 213);
+            position: absolute;
+            top: 50%;
+            left: 49.5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="top">
+            <div>  1</div>
+            <div>  2</div>
+            <div>  3</div>
+            <div>  4</div>
+            <div>  4</div>
+            <div>  5</div>
+            <div>  6</div>
+            <div>  7</div>
+            <div>  8</div>
+            <div>  9</div>
+            <div>  10</div>
+            <div>  11</div>
+        </div>
+        <div class="line">
+
+        </div>
+        <div class="bottom">
+            <div>  1</div>
+            <div>  2</div>
+            <div>  3</div>
+            <div>  4</div>
+            <div>  4</div>
+            <div>  5</div>
+            <div>  6</div>
+            <div>  7</div>
+            <div>  8</div>
+            <div>  9</div>
+            <div>  10</div>
+            <div>  11</div>
+        </div>
+    </div>
+</body>
+</html>
