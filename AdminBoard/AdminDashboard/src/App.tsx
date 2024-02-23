@@ -18,7 +18,7 @@ function App() {
             <Route path="admin/dashboard" element={<Dashboard/>} />
             <Route path="admin/products" element={<Products/>} />
             <Route path="admin/customers" element={<Customers/>} />
-            <Route path="admin/transactios" element={<Transaction/>} />
+            <Route path="admin/transactions" element={<Transaction/>} />
           </Routes>
           </Suspense>
       </Router>
