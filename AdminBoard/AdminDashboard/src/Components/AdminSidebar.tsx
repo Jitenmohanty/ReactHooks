@@ -17,6 +17,7 @@ import { Link, Location, useLocation } from "react-router-dom";
 
 const AdminSidebar = () => {
   const location = useLocation();
+  console.log(location)
   return (
     <aside>
       <h2>Logo.</h2>
@@ -94,7 +95,7 @@ const DivThree = ({ location }: { location: Location }) => (
         Icon={FaStopwatch}
       />
       <Li
-        url="/admin/app/cuppo"
+        url="/admin/app/cuppon"
         text="Cuppon"
         location={location}
         Icon={RiCouponFill}
