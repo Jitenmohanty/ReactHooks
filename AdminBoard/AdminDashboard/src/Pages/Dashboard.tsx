@@ -4,6 +4,8 @@ import { FaRegBell } from "react-icons/fa";
 import userimg from "../assets/userpic.png";
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
 import data from "../assets/data.json";
+import { BarChart, DoughnutChart } from "../Components/Chart";
+import { BiMaleFemale } from "react-icons/bi";
 
 const Dashboard = () => {
   return (
@@ -46,6 +48,14 @@ const Dashboard = () => {
         <section className="graphContainer">
           <div className="revinueChart">
             <h2>Revinue and Transactions</h2>
+            <BarChart
+              data_2={[300, 144, 433, 655, 237, 755, 190]}
+              data_1={[200, 444, 343, 556, 778, 455, 990]}
+              title_1="Revenue"
+              title_2="Transaction"
+              bgColor_1="rgb(0,115,255)"
+              bgColor_2="rgba(53,162,235,0.8)"
+            />
           </div>
           <div className="dashBoard">
             <h2>Inventory</h2>
@@ -59,6 +69,21 @@ const Dashboard = () => {
                 />
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="transactionContainer">
+          <div className="genderChart">
+            <h2>Gender Ratio</h2>
+            <DoughnutChart
+              labels={["Female", "Male"]}
+              data={[12, 19]}
+              backgroundColor={["hsl(340,82%,56%)", "rgba(53,162,235,0.8)"]}
+              cutout={90}
+            />
+            <p>
+              <BiMaleFemale />
+            </p>
           </div>
         </section>
       </main>
@@ -128,7 +153,7 @@ const CatagoryItems = ({ value, color, heading }: catagoryProps) => {
     <div className="catagoryItem">
       <h5>{heading}</h5>
       <div>
-        <div style={{ backgroundColor: color, width: `${value}` }}></div>
+        <div style={{ backgroundColor: color, width: `${value}%` }}></div>
       </div>
       <span>{value}%</span>
     </div>
