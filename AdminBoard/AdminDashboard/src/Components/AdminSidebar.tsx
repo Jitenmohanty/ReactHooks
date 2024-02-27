@@ -1,5 +1,6 @@
 import { IconType } from "react-icons";
 import { AiFillFileText } from "react-icons/ai";
+import Logo from "../assets/Logo.avif"
 import {
   FaChartBar,
   FaChartLine,
@@ -20,7 +21,7 @@ const AdminSidebar = () => {
   console.log(location)
   return (
     <aside>
-      <h2>Logo.</h2>
+      <h2><img src={Logo} alt="" /></h2>
       <DivOne location={location} />
       <DivTwo location={location} />
       <DivThree location={location} />
@@ -123,7 +124,7 @@ const Li = ({ url, text, location, Icon }: LiProps) => {
       style={{
         backgroundColor: location.pathname.includes(url)
           ? "rgba(0,115,255,0.1)"
-          : "white",
+          : "inherit",
       }}
     >
       <Link
