@@ -18,7 +18,6 @@ import { Link, Location, useLocation } from "react-router-dom";
 
 const AdminSidebar = () => {
   const location = useLocation();
-  console.log(location)
   return (
     <aside>
       <h2><img src={Logo} alt="" /></h2>
