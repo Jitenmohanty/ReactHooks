@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import "../src/Styles/app.scss";
 import Loader from "./Components/Loader";
 import UpdateProduct from "./Pages/Management/UpdateProduct";
+import TransactionManagement from "./Pages/Management/TransactionManagement";
 
 
 const Dashboard = lazy(()=>import("./Pages/Dashboard"))
@@ -28,8 +29,11 @@ function App() {
             {/* Management */}
             <Route path="/admin/product/new" element={<AddProduct/>}/>
             <Route path="/admin/product/update/:id" element={<UpdateProduct/>}/>
-
+            <Route path="/admin/transaction/:id" element={<TransactionManagement/>}/>
             {/* Chart */}
+
+
+            {/* Apps */}
             <Route path="admin/app/stopwatch" element={<Stopwatch/>} />
             <Route path="admin/app/cuppon" element={<Cuppon/>} />
             <Route path="admin/app/toss" element={<Toss/>} />

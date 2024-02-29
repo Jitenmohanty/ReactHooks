@@ -1,16 +1,12 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import AdminSidebar from "../../Components/AdminSidebar"
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const img =
   "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=804";
 
-  // const path = 
-  
-  
   const UpdateProduct = () => {
     const id = useParams();
-    console.log(id)
 
     const [name, setName] = useState<string>("Shoes");
     const [price, setPrice] = useState<number>(2000);
@@ -25,7 +21,7 @@ const img =
 
 
     const fileHandler = (e:ChangeEvent<HTMLInputElement>)=>{
-        const file:File|undefined = e.target.files?.[0];
+        const file:File|undefined = e.target.files?.[0] ;
         const reader:FileReader = new FileReader();
 
         if(file){
