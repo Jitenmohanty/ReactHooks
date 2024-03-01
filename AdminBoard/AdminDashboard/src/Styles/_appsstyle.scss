@@ -1,0 +1,34 @@
+.app-container {
+    background-color: white;
+    padding: 3rem;
+    
+    >section {
+        height: 100%;
+        @include flex(column, center, center, 4rem);
+
+        .stopwatch{
+            > h1 {
+                font-size: 2rem;
+                font-weight: 300;
+                text-align: center;
+              }
+        
+            >button{
+                border:none;
+                padding: 1rem 2rem;
+                margin: 2rem;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: 700;
+                cursor: pointer;
+
+                &:first-of-type{
+                    background-color: greenyellow;
+                }
+                &:last-of-type{
+                    background-color: rgb(252, 75, 75);
+                }
+            }
+        }
+    }
+}

@@ -79,7 +79,7 @@ const TransactionManagement = () => {
         <article className="shipping-info-card">
           <h1>Order Info</h1>
           <h5>User Info</h5>
-          <p>Name:{name}</p>
+          <p>Name: {name}</p>
           <p>
             Address: {`${street}, ${city}, ${state}, ${country} ${pinCode}`}
           </p>
