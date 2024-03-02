@@ -15,6 +15,7 @@ const formatTime = (timeInSecond: number) => {
 
 const Stopwatch = () => {
   const [time, setTime] = useState<number>(0);
+  const [currentTime, setCurrentTime] = useState<Date>(new Date());
   const [isTimeRunning, setIsTimeRunning] = useState<boolean>(false);
 
   const resetHandler = () => {
@@ -22,23 +23,40 @@ const Stopwatch = () => {
     setIsTimeRunning(false);
   };
 
+
+  useEffect(()=>{
+    
+    let t: number = setInterval(() => {
+        setCurrentTime(new Date());
+        console.log("Add")
+      }, 1000);
+    return () => {
+      clearInterval(t);
+    };
+  },[currentTime])
+
   useEffect(() => {
     let timmer: number;
     if (isTimeRunning) {
       timmer = setInterval(() => {
         setTime((prev) => prev + 1);
+        console.log("object")
       }, 1000);
     }
     return () => {
       clearInterval(timmer);
     };
   }, [isTimeRunning]);
-
   return (
     <div className="adminContainer">
       <AdminSidebar />
       <main className="app-container">
+        <div className="time">
         <h1>Stopwatch</h1>
+       <div className="inner">
+       <h3>{currentTime.toLocaleString()}</h3>
+       </div>
+        </div>
         <section>
           <div className="stopwatch">
             <h1>{formatTime(time)}</h1>
