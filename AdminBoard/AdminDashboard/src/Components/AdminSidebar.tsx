@@ -25,7 +25,7 @@ const AdminSidebar = () => {
   const [phoneActive, setPhoneActive] = useState<boolean>(
     window.innerWidth < 1100
   );
-  const sidebarRef = useRef(null);
+  const sidebarRef = useRef<HTMLInputElement>(null);
 
 
   const resizeHandler = () => {
@@ -41,6 +41,7 @@ const AdminSidebar = () => {
   }, []);
   useEffect(() => {
     const handleClickOutside = (event:MouseEvent) => {
+      
       if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
         setShowModal(false);
       }
