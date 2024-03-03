@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
 import { AiFillFileText } from "react-icons/ai";
-import Logo from "../assets/Logo.avif"
+import Logo from "../assets/Logo.avif";
 import {
   FaChartBar,
   FaChartLine,
@@ -15,16 +15,79 @@ import {
   RiShoppingBagFill,
 } from "react-icons/ri";
 import { Link, Location, useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { HiMenuAlt4 } from "react-icons/hi";
 
 const AdminSidebar = () => {
   const location = useLocation();
+
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [phoneActive, setPhoneActive] = useState<boolean>(
+    window.innerWidth < 1100
+  );
+  const sidebarRef = useRef(null);
+
+
+  const resizeHandler = () => {
+    setPhoneActive(window.innerWidth < 1100);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, []);
+  useEffect(() => {
+    const handleClickOutside = (event:MouseEvent) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+        setShowModal(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <aside>
-      <h2><img src={Logo} alt="" /></h2>
-      <DivOne location={location} />
-      <DivTwo location={location} />
-      <DivThree location={location} />
-    </aside>
+    <>
+      {phoneActive && (
+        <button id="hamburger" onClick={() => setShowModal(true)}>
+          <HiMenuAlt4 />
+        </button>
+      )}
+      <aside
+        ref={sidebarRef}
+        style={
+          phoneActive
+            ? {
+                width: "20rem",
+                height: "100vh",
+                position: "fixed",
+                top: 0,
+                left: showModal ? "0" : "-20rem",
+                transition: "all 0.5s",
+              }
+            : {}
+        }
+      >
+        <h2>
+          <img src={Logo} alt="" />
+        </h2>
+        <DivOne location={location} />
+        <DivTwo location={location} />
+        <DivThree location={location} />
+        {phoneActive && (
+          <button id="close-sidebar" onClick={() => setShowModal(false)}>
+            Close
+          </button>
+        )}
+      </aside>
+    </>
   );
 };
 

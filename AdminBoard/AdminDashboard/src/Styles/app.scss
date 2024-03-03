@@ -3,6 +3,7 @@
 @import "product";
 @import "chart";
 @import "appsstyle";
+@import "mediaQuerry";
 
 
 :root {
@@ -200,3 +201,34 @@ a {
       transform: rotateZ(360deg);
     }
   }
+
+  #hamburger {
+    display: grid;
+    place-items: center;
+    @include square(3rem);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgba(44, 104, 255);
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 9;
+  }
+  
+  #close-sidebar {
+    width: 80%;
+    margin: 1rem auto;
+    display: block;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(168, 2, 2);
+    color: white;
+    border-radius: 10px;
+  }
+  

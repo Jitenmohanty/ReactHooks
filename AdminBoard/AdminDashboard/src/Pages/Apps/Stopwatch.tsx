@@ -25,10 +25,8 @@ const Stopwatch = () => {
 
 
   useEffect(()=>{
-    
     let t: number = setInterval(() => {
         setCurrentTime(new Date());
-        console.log("Add")
       }, 1000);
     return () => {
       clearInterval(t);
@@ -40,7 +38,6 @@ const Stopwatch = () => {
     if (isTimeRunning) {
       timmer = setInterval(() => {
         setTime((prev) => prev + 1);
-        console.log("object")
       }, 1000);
     }
     return () => {
@@ -60,10 +57,12 @@ const Stopwatch = () => {
         <section>
           <div className="stopwatch">
             <h1>{formatTime(time)}</h1>
+            <div className="innetbtn">
             <button onClick={() => setIsTimeRunning((prev) => !prev)}>
               {isTimeRunning ? "Stop" : "Start"}
             </button>
             <button onClick={resetHandler}>Reset</button>
+            </div>
           </div>
         </section>
       </main>

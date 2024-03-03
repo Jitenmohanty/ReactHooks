@@ -35,9 +35,9 @@ const Cuppon = () => {
       if (includeCharacters) entireString += allLetters;
       if (includeSymbols) entireString += allSymbols;
 
-      const randomNumber = Math.floor(Math.random() * entireString.length);
       // You can use ~~ Bitwise operater otherwise you can use Math.floor() Both convert
-
+      const randomNumber = Math.floor(Math.random() * entireString.length);
+      setIsCopied(false);
       result += entireString[randomNumber];
       setCoupon(result);
     }
@@ -68,25 +68,28 @@ const Cuppon = () => {
             <fieldset>
               <legend>Include</legend>
               <input
+                id="number"
                 type="checkbox"
                 checked={includeNumbers}
                 onChange={() => setIncludeNumbers((prev) => !prev)}
               />
-              <span>Numbers</span>
+              <label htmlFor="number">Numbers</label>
 
               <input
+                id="character"
                 type="checkbox"
                 checked={includeCharacters}
                 onChange={() => setIncludeCharacters((prev) => !prev)}
               />
-              <span>Characters</span>
+              <label htmlFor="character">Characters</label>
 
               <input
+                id="symbol"
                 type="checkbox"
                 checked={includeSymbols}
                 onChange={() => setIncludeSymbols((prev) => !prev)}
               />
-              <span>Symbols</span>
+              <label htmlFor="symbol">Symbols</label>
             </fieldset>
             <button type="submit">Generate</button>
           </form>

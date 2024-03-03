@@ -27,21 +27,24 @@
                 text-align: center;
             }
 
-            >button {
-                border: none;
-                padding: 1rem 2rem;
-                margin: 2rem;
-                border-radius: 10px;
-                font-size: 1rem;
-                font-weight: 700;
-                cursor: pointer;
-
-                &:first-of-type {
-                    background-color: greenyellow;
-                }
-
-                &:last-of-type {
-                    background-color: rgba(250, 71, 61, 0.872);
+            .innetbtn{
+                display: flex;
+                >button {
+                    border: none;
+                    padding: 1rem 2rem;
+                    margin: 2rem;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    cursor: pointer;
+    
+                    &:first-of-type {
+                        background-color: greenyellow;
+                    }
+    
+                    &:last-of-type {
+                        background-color: rgba(250, 71, 61, 0.872);
+                    }
                 }
             }
         }
@@ -94,25 +97,27 @@
             width: 100%;
 
             >input {
-                padding: 1rem;
-                border: 1px solid rgba(0, 0, 0, 0.359);
+                padding: .9rem;
+                border: 2px solid rgba(65, 62, 62, 0.543);
                 outline: none;
+                font-size: 1rem;
                 border-radius: 5px;
             }
 
             >fieldset {
-                padding: 1rem;
-                border: 1px solid rgba(0, 0, 0, 0.359);
+                padding: .7rem;
+                border: 2px solid rgba(65, 62, 62, 0.543);
                 border-radius: 5px;
                 @include flex(row, center, center, 0);
                 flex-wrap: wrap;
                 grid-column: 1/3;
 
-                span {
-                    font-size: 0.8rem;
-                    font-weight: 300;
+                label {
+                    font-size: 1rem;
+                    font-weight: 400;
                     margin-inline-start: 0.25rem;
                     margin-inline-end: 1rem;
+                    cursor: pointer;
                 }
             }
 
